@@ -5,6 +5,7 @@ This is a demo developed from my [seed repo](https://github.com/brittanymoore/an
 The master branch contains:
 * angularJS
 * webpack
+* sass
 * component-based routing (@uirouter/angularjs)
 * ES6 support (babel)
 * unit testing with karma
