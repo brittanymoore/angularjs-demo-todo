@@ -1,0 +1,31 @@
+<div class="error" ng-if="vm.error">{{vm.error}}</div>
+
+<!-- list of tasks -->
+<div class="todo-list-container">
+
+    <h2>My List</h2>
+
+    <div ng-if="vm.tasksLoading">Please wait...</div>
+
+    <ul id="taskList" class="todo-list">
+        <li ng-repeat="task in vm.tasks" ng-class="{complete: task.complete}">
+            {{task.name}}
+            <div class="task-complete" ng-click="vm.toggleTaskCompletion(task)">
+                <span class="fa fa-check-circle"></span>
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+<hr>
+
+<!-- new task form -->
+<div class="card">
+    <form novalidate name="vm.form" form="form" ng-submit="vm.onSubmit()">
+        <label>Add a task:
+            <input type="text" ng-model="vm.name" name="name" required />
+        </label> 
+        <button type="submit" ng-disabled="vm.form.$invalid">Add</button>   
+    </form>
+</div>

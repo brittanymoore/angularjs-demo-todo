@@ -1,0 +1,58 @@
+$lightPink: #f972d6;
+$darkPink: #f123bb;
+
+$listItem: $lightPink;
+$listItemHover: $darkPink;
+
+.todo-list-container {
+    border: 1px solid #f0f0f0;
+    padding: 10;
+    box-shadow: 0px 1px 1px #f0f0f0;
+    border-radius: 4px;
+}
+
+.todo-list-container > h2 {
+    margin: 0;
+    font-size: 1em;
+    padding: 5px;
+    color: #ffffff;
+    background-color: $darkPink;
+    border-radius: 4px;
+}
+
+.todo-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-list > li {
+    border: 1px solid #f0f0f0;
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    line-height: 1.5em;
+}
+
+.todo-list > li.complete .fa {
+    color: $darkPink;
+}
+
+.todo-list > li.complete {
+    text-decoration: line-through;
+}
+
+.task-complete {
+    float: right;
+    font-size: 1.5em;
+}
+
+.task-complete > .fa {
+    cursor: pointer;
+    color: darkgray;
+    transition: color 1s;
+}
+
+.completed, .task-complete > .fa:hover {
+    color: $darkPink;
+}
