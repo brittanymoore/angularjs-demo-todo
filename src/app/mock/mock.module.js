@@ -1,11 +1,8 @@
-import MockService from './mock.service';
-import ToDoMockData from './models/todo.mock';
 import 'angular-mocks/angular-mocks';
 
-const MODULE_NAME = 'appMock';
+import { MockService } from './mock.service';
+import { ToDoMockData } from './models/todo.mock';
 
-angular.module(MODULE_NAME, [ 'ngMockE2E' ])
-    .service('ToDoMockData', ToDoMockData)
-    .run( MockService );
-
-export default MODULE_NAME;
+export const mockModule = angular.module('appMock', [ 'ngMockE2E' ])
+    .service('toDoMockData', ToDoMockData)
+    .run(MockService);

@@ -1,4 +1,4 @@
-class ToDoService {
+export class ToDoService {
 
     constructor($http) {
         this.$http = $http;
@@ -41,5 +41,3 @@ class ToDoService {
 }
 
 ToDoService.$inject = [ '$http' ];
-
-export default ToDoService;

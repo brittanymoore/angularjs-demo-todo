@@ -6,8 +6,6 @@ const config = ($stateProvider, $urlRouterProvider) => {
 
 config.$inject = [ '$stateProvider', '$urlRouterProvider' ];
 
-const routes = {
+export const routes = {
     config: config
 };
-
-export default routes;

@@ -1,10 +1,8 @@
-import ToDoController from './todo.controller';
+import { ToDoController } from './todo.controller';
 
-const ToDoComponent = {
+export const toDoComponent = {
     template: require('./todo.component.html'),
     controller: ToDoController,
     controllerAs: 'vm',
     bindings: { }
 };
-
-export default ToDoComponent;

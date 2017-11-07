@@ -1,34 +1,33 @@
-import appToDo from './todo.module';
-import appMock from './../mock/mock.module';
+import { todoModule } from './todo.module';
+import { mockModule } from './../mock/mock.module';
 
 describe('UNIT: ToDo:', () => {
 
     beforeEach(() => {
-        // mock modules
-        angular.mock.module(appToDo);
-        angular.mock.module(appMock);
+        angular.mock.module(todoModule.name);
+        angular.mock.module(mockModule.name);
     });
 
     describe('Controller:', () => {
 
-        let controller, ToDoService, ToDoMockData, deferred, $rootScope;
+        let controller, toDoService, toDoMockData, deferred, $rootScope;
 
         beforeEach(() => {
 
             // inject dependencies
-            angular.mock.inject(($componentController, _ToDoService_, _ToDoMockData_, $q, _$rootScope_) => {
+            angular.mock.inject(($componentController, _toDoService_, _toDoMockData_, $q, _$rootScope_) => {
                 
-                ToDoService = _ToDoService_;
-                ToDoMockData = _ToDoMockData_;
+                toDoService = _toDoService_;
+                toDoMockData = _toDoMockData_;
                 $rootScope = _$rootScope_;
 
                 // spy on service functions and return promises
                 deferred = $q.defer();
-                spyOn(ToDoService, 'getTasks').and.returnValue(deferred.promise);
-                spyOn(ToDoService, 'addTask').and.returnValue(deferred.promise);
+                spyOn(toDoService, 'getTasks').and.returnValue(deferred.promise);
+                spyOn(toDoService, 'addTask').and.returnValue(deferred.promise);
 
                 controller = $componentController('todo', {
-                    ToDoService: ToDoService
+                    toDoService: toDoService
                 });
             }); 
 
@@ -38,14 +37,14 @@ describe('UNIT: ToDo:', () => {
 
             it('Should call service to get tasks.', () => {
                 controller.getTasks();
-                expect(ToDoService.getTasks).toHaveBeenCalled();
+                expect(toDoService.getTasks).toHaveBeenCalled();
             });
 
             it('Should set internal tasks variable based on service results.', () => {
                 controller.getTasks();
-                deferred.resolve(ToDoMockData.getTasks());
+                deferred.resolve(toDoMockData.getTasks());
                 $rootScope.$digest();
-                expect(controller.tasks.length).toBe(ToDoMockData.tasks.length);
+                expect(controller.tasks.length).toBe(toDoMockData.tasks.length);
             });
 
         });
@@ -55,7 +54,7 @@ describe('UNIT: ToDo:', () => {
             it('Should call service to add task.', () => {
                 controller.name = 'Test thing to do';
                 controller.addTask();
-                expect(ToDoService.addTask).toHaveBeenCalled();
+                expect(toDoService.addTask).toHaveBeenCalled();
             });
 
         });

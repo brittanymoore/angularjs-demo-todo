@@ -1,4 +1,4 @@
-import app from './app.module';
+import { appModule } from './app.module';
 
 describe("app:", () => {
 
@@ -7,9 +7,9 @@ describe("app:", () => {
         let controller;
 
         beforeEach(() => {       
-            angular.mock.module(app);
+            angular.mock.module(appModule.name);
             angular.mock.inject(($componentController) => {
-                controller = $componentController('myApp', {});
+                controller = $componentController('appRoot', {});
             });
         });
 

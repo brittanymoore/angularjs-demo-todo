@@ -1,14 +1,14 @@
-const MockService = ($httpBackend, ToDoMockData) => {
+export const MockService = ($httpBackend, toDoMockData) => {
 
     // mock get tasks (SharePoint REST API)
     $httpBackend.whenGET(/api\/tasks$/).respond(() => {
-        const returnData = ToDoMockData.getTasks();
+        const returnData = toDoMockData.getTasks();
         return [ 200, returnData, {} ];
     });
 
     // mock add tasks (SharePoint REST API)
     $httpBackend.whenPOST(/api\/tasks$/).respond((method, url, data) => {
-        const returnData = ToDoMockData.addTask(JSON.parse(data));
+        const returnData = toDoMockData.addTask(JSON.parse(data));
         return [ 200, returnData, {} ];
     });
 
@@ -19,7 +19,7 @@ const MockService = ($httpBackend, ToDoMockData) => {
         if (data.id && id !== data.id) {
             return [ 400 ];
         } else {
-            const task = ToDoMockData.updateTask(id, JSON.parse(data));
+            const task = toDoMockData.updateTask(id, JSON.parse(data));
             return [ 200, task, {} ];
         }
     });
@@ -29,6 +29,4 @@ const MockService = ($httpBackend, ToDoMockData) => {
 
 };
 
-MockService.$inject = [ '$httpBackend', 'ToDoMockData' ];
-
-export default MockService;
+MockService.$inject = [ '$httpBackend', 'toDoMockData' ];

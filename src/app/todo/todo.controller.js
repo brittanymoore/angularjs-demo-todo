@@ -1,7 +1,7 @@
-class ToDoController {
+export class ToDoController {
 
-    constructor(ToDoService) {
-        this.toDoService = ToDoService;
+    constructor(toDoService) {
+        this.toDoService = toDoService;
         this.name = '';
         this.tasks = [];
         this.tasksLoading = true;
@@ -41,6 +41,4 @@ class ToDoController {
 
 }
 
-ToDoController.$inject = [ 'ToDoService' ];
-
-export default ToDoController;
+ToDoController.$inject = [ 'toDoService' ];

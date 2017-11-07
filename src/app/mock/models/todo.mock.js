@@ -1,4 +1,4 @@
-class ToDoMockData {
+export class ToDoMockData {
 
     constructor() {
         this.tasks = [
@@ -31,5 +31,3 @@ class ToDoMockData {
     }
 
 }
-
-export default ToDoMockData;
