@@ -34,7 +34,7 @@ $listItemHover: $darkPink;
     line-height: 1.5em;
 }
 
-.todo-list > li.complete .fa {
+.todo-list > li.complete .icon {
     color: $darkPink;
 }
 
@@ -47,12 +47,12 @@ $listItemHover: $darkPink;
     font-size: 1.5em;
 }
 
-.task-complete > .fa {
+.task-complete > .icon {
     cursor: pointer;
     color: darkgray;
     transition: color 1s;
 }
 
-.completed, .task-complete > .fa:hover {
+.task-complete > .icon:hover {
     color: $darkPink;
 }
