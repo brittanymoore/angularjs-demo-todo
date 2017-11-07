@@ -9,11 +9,11 @@
         "url": "git+https://github.com/brittanymoore/angularjs-demo-todo.git"
     },
     "scripts": {
-        "build": "webpack --env=dev --progress --profile --colors",
-        "build:prod": "webpack --env=prod --progress --profile --colors",
+        "build": "webpack --env=dev --progress",
+        "build:prod": "webpack --env=prod --progress",
         "lint": "eslint src/**/*.js -c ./config/.eslintrc --ignore-path ./config/.eslintignore",
-        "start": "webpack-dev-server --env=dev --open --progress",
-        "start:prod": "webpack-dev-server --env=prod --open --progress",
+        "start": "webpack-dev-server --env=dev --open --progress --no-info",
+        "start:prod": "webpack-dev-server --env=prod --open --progress --no-info",
         "test": "karma start ./config/karma.conf.js",
         "test:e2e": "protractor ./config/protractor.conf.js",
         "webdriver-manager": "webdriver-manager"
@@ -31,6 +31,7 @@
         "babel-preset-es2015": "^6.24.1",
         "chunk-manifest-webpack-plugin": "^1.1.2",
         "css-loader": "^0.28.7",
+        "dotenv": "^4.0.0",
         "eslint": "^4.10.0",
         "file-loader": "^1.1.5",
         "font-awesome": "^4.7.0",

@@ -24,13 +24,9 @@ npm install
 
 ### Launch the App
 
-To run the app in development mode:
-
 ```
 npm run start
 ```
-
-Once the server is running, open a browser and navigate to localhost:3000.
 
 ### Build
 
@@ -39,7 +35,7 @@ Once the server is running, open a browser and navigate to localhost:3000.
 | Dev               | build          | dev      | false  |
 | Prod              | build:prod     | dist     | true   |
 
-Each mode has a start command similar to the one above, which can be used to launch the app locally.
+Each mode has a start command that can be used to launch the app locally.
 
 ```
 npm run start

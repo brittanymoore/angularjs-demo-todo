@@ -1,28 +1,25 @@
+const webpack = require('webpack');
 const path = require('path');
 
-// plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// constants
-const APP_NAME = 'AngularJS Vertex';
+const OUTPUT_PATH = path.resolve(__dirname, `./../${process.env.OUTPUT_DIR}`);
 
-exports.apiUrl = '';
-exports.publicPath = '';
-
-exports.config = {
+module.exports = {
 
     entry: {
         main: './src/main.js'
     },
 
     output: {
-        filename: '[name].[chunkhash].js',
         sourceMapFilename: '[name].map',
-        chunkFilename: '[id].chunk.js'
+        chunkFilename: '[id].chunk.js',
+        publicPath: process.env.PUBLIC_PATH,
+        path: OUTPUT_PATH
     },
 
     resolve: {
-        extensions: [ '.ts', '.js' ],
+        extensions: [ '.js' ],
         modules: [ path.resolve(__dirname, './../node_modules') ]
     },
 
@@ -45,16 +42,41 @@ exports.config = {
     },
 
     plugins: [
+
         new HtmlWebpackPlugin({
-            title: APP_NAME,
+            title: process.env.APP_NAME,
+            baseUrl: process.env.BASE_URL,
             template: './config/index.template.ejs',
             chunksSortMode: 'dependency'
-        })
+        }),
+
+        new webpack.DefinePlugin({
+            'process.env': {
+                'ENV': JSON.stringify(process.env.NODE_ENV),
+                'API_URL': JSON.stringify(process.env.API_URL)
+            }
+        }),
+        
     ],
 
     devServer: {
-        stats: 'minimal',
-        port: 3000
+        port: 4200,
+        contentBase: OUTPUT_PATH,
+        historyApiFallback: {
+            index: process.env.PUBLIC_PATH
+        },
+        watchOptions: {
+            ignored: '**/*.spec.ts'
+        }
+    },
+
+    stats: {
+        assets: true,
+        children: false,
+        errors: true,
+        errorDetails: true,
+        modules: false,
+        warnings: false
     }
 
 };
