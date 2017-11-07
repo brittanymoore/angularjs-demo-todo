@@ -18,7 +18,7 @@ require('font-awesome/css/font-awesome.min.css');
 const MODULE_NAME = 'app';
 
 angular.module(MODULE_NAME, [ uiRouter, appToDo, appMock ])
-    .component('myApp', AppComponent)
+    .component('appRoot', AppComponent)
     .config(routes.config);
 
 export default MODULE_NAME;

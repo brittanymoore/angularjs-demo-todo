@@ -12,7 +12,7 @@ exports.publicPath = '';
 exports.config = {
 
     entry: {
-        main: './src/app/app.module.js'
+        main: './src/main.js'
     },
 
     output: {
